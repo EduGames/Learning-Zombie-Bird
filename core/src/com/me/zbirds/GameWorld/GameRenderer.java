@@ -160,28 +160,27 @@ public class GameRenderer {
 
         drawGrass();
         drawPipes();
-        System.out.println("GamRenderer - render 3");
         batcher.enableBlending();
         drawSkulls();
-        System.out.println("GamRenderer - render 4");
         if (bird.shouldntFlap()) {
-            System.out.println("GamRenderer - render 5a");
             batcher.draw(birdMid, bird.getX(), bird.getY(),
                     bird.getWidth() / 2.0f, bird.getHeight() / 2.0f,
                     bird.getWidth(), bird.getHeight(), 1, 1, bird.getRotation());
-            System.out.println("GamRenderer - render 5aa");
         } else {
-            System.out.println("GamRenderer - render 5b");
             batcher.draw(birdAnimation.getKeyFrame(runTime), bird.getX(),
                     bird.getY(), bird.getWidth() / 2.0f,
                     bird.getHeight() / 2.0f, bird.getWidth(), bird.getHeight(),
                     1, 1, bird.getRotation());
-            System.out.println("GamRenderer - render 5bb");
         }
-        System.out.println("GamRenderer - render 6");
+        String score = myWorld.getScore() + "";
+
+        // Draw shadow first
+        AssetLoader.shadow.draw(batcher, "" + myWorld.getScore(), (136 / 2)
+                - (3 * score.length()), 12);
+        // Draw text
+        AssetLoader.font.draw(batcher, "" + myWorld.getScore(), (136 / 2)
+                - (3 * score.length() - 1), 11);
         // End SpriteBatch
         batcher.end();
-        System.out.println("GamRenderer - render 7");
-        System.out.println("GamRenderer - render END");
     }
 }
