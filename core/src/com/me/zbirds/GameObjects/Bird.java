@@ -2,6 +2,7 @@ package com.me.zbirds.GameObjects;
 
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
+import com.me.zbirds.Helpers.AssetLoader;
 
 /**
  * Created by mohheader on 16/07/14.
@@ -57,6 +58,7 @@ public class Bird {
     }
 
     public void onClick() {
+        AssetLoader.flap.play();
         velocity.y = -140;
     }
 
