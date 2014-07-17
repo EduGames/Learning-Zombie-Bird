@@ -95,4 +95,9 @@ public class Pipe extends Scrollable {
     public Rectangle getBarDown() {
         return barDown;
     }
+
+    public void onRestart(float x, int scrollSpeed) {
+        velocity.x = scrollSpeed;
+        reset(x);
+    }
 }
